@@ -6,6 +6,9 @@
     "dev": "webpack --mode development --watch --devtool 'inline-source-map'",
     "build": "webpack --mode production"
   },
+  "repository": {
+    "url": "https://github.com/VictorioBerra/rise-irccloud-customizer.git"
+  },
   "author": "Victorio Berra",
   "license": "MIT",
   "devDependencies": {
