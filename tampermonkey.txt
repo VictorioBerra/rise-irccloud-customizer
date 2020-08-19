@@ -1,0 +1,12 @@
+// ==UserScript==
+// @name         Ownix Rise IRCCloud Customizer
+// @namespace    http://tampermonkey.net/
+// @version      @@VERSION@@
+// @description  Add customizations to IRCCloud
+// @author       Victorio Berra
+// @match        https://www.irccloud.com/*
+// @grant        none
+// ==/UserScript==
+
+/* eslint-disable */
+

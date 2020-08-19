@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Apply some of customizations to IRCCloud",
   "scripts": {
-    "dev": "webpack --mode development --watch --devtool 'inline-source-map'",
-    "build": "webpack --mode production"
+    "dev": "webpack --mode development --watch",
+    "build": "webpack --mode production",
+    "build:verbose": "webpack --mode production --display verbose --display-modules"
   },
   "repository": {
     "url": "https://github.com/VictorioBerra/rise-irccloud-customizer.git"
@@ -12,12 +13,14 @@
   "author": "Victorio Berra",
   "license": "MIT",
   "devDependencies": {
+    "@types/joi": "^14.3.4",
+    "fork-ts-checker-webpack-plugin": "^5.1.0",
     "joi": "^17.2.0",
-    "nodemon": "^2.0.4",
+    "rfr": "^1.2.3",
+    "terser-webpack-plugin": "^4.1.0",
     "ts-loader": "^8.0.2",
     "typescript": "^3.9.7",
     "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12",
-    "@types/joi": "^14.3.4"
+    "webpack-cli": "^3.3.12"
   }
 }
