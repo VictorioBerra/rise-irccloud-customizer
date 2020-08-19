@@ -8,6 +8,7 @@ const rfr = require('rfr');
 const tamperMonkeyFile = fs.readFileSync(rfr.resolve('./tampermonkey.txt'), { encoding:'utf8' });
 const packageVersion = rfr("./package.json").version;
 const tampermonkeyFileHeader = tamperMonkeyFile.replace(/\@\@VERSION\@\@/, packageVersion);
+const tampermonkeyFileHeaderLines = tampermonkeyFileHeader.split(/\n/);
 
 module.exports = (env, argv) => {
 
@@ -25,9 +26,20 @@ module.exports = (env, argv) => {
   // load plugin only in development mode
   if (!isDev) {
     optimization.minimizer.push(new TerserPlugin({
-      extractComments: /.*/i ///^\/\/\s\=\=UserScript\=\=.*\*\/\n\n$/gms
+      terserOptions: {
+        output: {
+          comments: { 
+            test: function (comment){
+              if(comment) {
+                return /\@/i.test(comment) || /UserScript/i.test(comment) ||  /eslint-disable/i.test(comment);
+              }
+            } 
+          }
+        },
+      },
     }));
     pluginsArr.push(new webpack.BannerPlugin({
+      raw: true,
       banner: tampermonkeyFileHeader
     }));
   }

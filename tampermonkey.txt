@@ -7,6 +7,5 @@
 // @match        https://www.irccloud.com/*
 // @grant        none
 // ==/UserScript==
-
 /* eslint-disable */
-
+// @begin
